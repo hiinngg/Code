@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style type="text/css">
+	.top {
+			background-color: white;
+			display: flex;
+			white-space: nowrap;
+			justify-content: space-around;
+			align-items: center;
+			text-align: left;
+			padding: 10px 0;
+			border-bottom: 1px solid #DDDDDD;
+		}
+		.search{
+			padding: 10.5px 11px;
+			background:white;
+				border-bottom: 1px solid #DDDDDD;
+		}
+		
+		.kword span{
+	      color:#4E4E4E;
+		 display: inline-block;
+		   font-size: 15px;
+			padding: 4px 8px;
+			border: 1px solid #999999;
+			border-radius: 6px;
+			margin:0 6px 6px 0;
+		}
+
+	}
+	</style>
+
+	<body>
+
+		<div class="top ">
+			<span class="mui-icon mui-icon-arrowleft"></span>
+			<div class="mui-input-row">
+				<input class="mui-input-clear" type="text" style="text-align:left;  width: auto;margin: 0; border:0;border-bottom: 1px solid #eee;" value="进口海鲜今日三折起售" />
+			</div>
+			<span class="mui-icon mui-icon-search"></span>
+			<span>取消</span>
+			<!--<button id="search" type="button" class="mui-btn mui-btn-primary" style="border-radius:8px;">搜索</button>-->
+
+		</div>
+		<div class="search" >
+			<div style="display: flex; justify-content: space-between;">
+				<p>
+					<span class="mui-icon mui-icon-search"  style="font-size: 20px;"></span>
+					<span>最近搜索</span>
+
+				</p>
+				<img src="image/seadel.png" width="15" height="16" />
+
+			</div>
+			<div class="kword">
+				<span>毛呢外套</span>
+				<span>毛呢外套</span>
+				<span>毛呢外套</span>
+				<span>毛呢外套</span>
+				<span>毛呢外套</span>
+				<span>毛呢外套</span>
+			</div>
+
+		</div>
+			<div class="search" style="border: 0;" >
+			<div style="display: flex; justify-content: space-between;">
+				<p>
+					<img src="image/fire.png" alt=""  width="15" height="16"/>
+					<span>热门搜索</span>
+
+				</p>
+			
+
+			</div>
+			<div class="kword">
+				<span>毛呢外套</span>
+				<span>毛呢外套</span>
+				<span>毛呢外套</span>
+				<span>毛呢外套</span>
+				<span>毛呢外套</span>
+				<span>毛呢外套</span>
+			</div>
+
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

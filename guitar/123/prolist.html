@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style type="text/css">
+	body{
+		
+		background-color: white;
+		
+	}
+	p{
+		margin: 0;
+		padding: 0;
+	}
+	.nav{
+		padding:0 5px 0 15px;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	
+	}
+	.nav .bar{
+		position: absolute;
+       left: 50%;  
+     margin-left:-90px;
+       bottom: 10px;
+	
+	}
+	.nav .bar span{
+		border-bottom: 3px solid #FFFFFF;
+		font-size: 15px;
+	      padding: 10px 15px;
+		
+		
+	}
+	.float{
+		margin-top:15px ;
+	}
+		.float:after {
+			display: block;
+			clear: both;
+			content: "";
+			visibility: hidden;
+			height: 0;
+		}
+		.tables li {
+			align-items: center;
+			vertical-align:baseline;
+		padding: 15px 15px ;
+		}
+		.tables img{
+			vertical-align: middle;
+		}
+		.mui-table-view-cell:after,.mui-table-view:before,.mui-table-view:after{
+			height: 0;
+		}
+		
+	</style>
+
+	<body>
+		<div class="nav" style="height: 48px; background: white; position: fixed;width:100%;z-index:2;top: 0;">
+		<span class="mui-icon mui-icon-arrowleft"></span>
+		<p  class="bar" ><span style="color: #ff2150; border-color: #FF2150;">商品</span><span>详情</span><span>评价</span></p>	
+		<div style="margin-bottom: -5px; " >
+			<div style="display: inline-block;position: relative;">
+				<img src="image/cart.png"  width="22"  height="22"/>	
+				<div  style=" text-align:center;color:white;font-size: 5px; border-radius: 50%; width: 15px;height: 15px; background-color: #ff2150; position: absolute;top: -3px;right: -8px;">
+					<span style="width:15px;position: absolute;top:-3px;left: 50%;margin-left: -50%;">99</span>
+				</div>
+			</div>
+			
+			<img style="margin-bottom:5px;margin-left: 10px;" src="image/tuoyuan.png" width="24" height="6" alt="" />
+		</div>	
+			
+		</div>
+		<div class="mui-slider" style="height: 312px;">
+			<div class="mui-slider-group">
+				<div class="mui-slider-item">
+					<a href="#"><img src="gallery2.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="gallery2.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="gallery2.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="gallery2.jpg" /></a>
+				</div>
+			</div>
+		</div>
+		<div style="padding: 12px 15px;">
+			<p style="font-size:17px ;">Pristian zouboutin 2015秋季新款羽毛蕾丝抹胸长拖尾镶 钻拉链婚纱</p>
+		<div style="color: #ff2150;" class="float"><span style="font-size:12px ;">￥</span><span style="font-size: 22px;">489</span>
+
+			<p class="mui-pull-right " style="font-size:13px ;"><span>全国包邮</span> | <span>销量488</span> </p>
+		</div>
+		</div>
+		
+		<ul class="mui-table-view tables ">
+			<li class="mui-table-view-cell">
+				<a class="mui-navigate-right" style=""> <img src="quan.png" alt=""  width="15" height="10"/> <span style="font-size:12px ;"> 领取优惠券</span></a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a href="#size" class="mui-navigate-right">请选择尺码</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a class="mui-navigate-right">商户评价（99）</a>
+			</li>
+			
+		</ul>
+		<div id="size" style="height: 400px;background: white;" class="mui-popover mui-popover-bottom mui-popover-action ">
+  
+        <div style="position:relative;display: flex; padding: 15px 10.5px; height: 100px; width: 100%;">
+        	
+        	<img src=""  width="67" height="67"/>
+        	<div style="margin-left: 20px;">
+        		<p style="font-size:17px ;">￥489</p>
+        		<p style="font-size:12px ;margin-top: 15px;">库存148984</p>
+        	</div>
+        	<span style="position: absolute;right: 10.5px;top: 15px;font-size: 24px;" >×</span>
+        </div>
+        <div style="padding: 15px 10.5px;">
+        	<p style="margin-bottom: 14px;">颜色、尺码</p>
+        	<div >
+        		<p	style="margin: 5px; display:inline-block;color:#969696;border-radius:10px;padding:6px 10px;background-color: #F7F7F7;">2017新款黑色</p>
+        		<p	style="margin: 5px; display:inline-block;color:#969696;border-radius:10px;padding:6px 10px;background-color: #F7F7F7;">2017新款黑色</p>
+        		<p	style="margin: 5px; display:inline-block;color:#969696;border-radius:10px;padding:6px 10px;background-color: #F7F7F7;">2017新款黑色</p>
+        		<p	style="margin: 5px; display:inline-block;color:#969696;border-radius:10px;padding:6px 10px;background-color: #F7F7F7;">2017新款黑色</p>
+        		
+        	</div>
+        	
+        </div>
+        <div style="position: fixed; bottom: 0;background: #4979FA;padding:7px;width: 100%; text-align: center;color: white;" >确定</div>
+         </div>
+         <p style="text-align: center;padding: 10px;"><span style="font-size:12px;" class="mui-icon mui-icon-image">详情</span></p>
+         
+         <div  style="display: flex;align-items: center; height: 47px; position: fixed;bottom: 0;width: 100%;background: white;">
+         	
+         	<div style="display: flex;flex-direction: column;align-items: center;margin: 0 40px;">
+         		<img src="kefu.png" width="18" height="14"/>
+         		<p>客服</p>
+         	</div>
+         	<div style="display: flex;justify-content: space-around;">
+         		<p style="padding:7px 14px;border: 1px solid #ff2150;color:#FF2150;border-radius: 5px;text-align: center;">加入购物车</p>
+         		<p style="margin-left: 13px; padding:7px 21px;border: 1px solid #ff2150;color:#FFFFFF;background:#FF2150;border-radius: 5px;text-align: center;">立即购买</p>
+         	</div>
+         	
+         </div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

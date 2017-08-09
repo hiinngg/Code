@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style type="text/css">
+		body {
+			background-color: #F4F4F4;
+		}
+		
+		div,
+		img,
+		li {
+			background-color: #FFFFFF;
+		}
+		
+		.mui-table-view-cell>a:not(.mui-btn).mui-active {
+			background-color: #FFFFFF !important;
+		}
+		
+		.mui-table-view-cell.mui-active {
+			background-color: #EEEEEE;
+		}
+		
+		.top {
+			width: 100%;
+			top: 0;
+			position: fixed;
+			padding: 12px 2.5vw;
+			text-align: center;
+		}
+		
+		.top p {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #4979FA;
+			border-radius: 15px;
+			padding: 11.5px 28vw;
+			border: 2.5px dashed #4979FA;
+		}
+		
+		.mui-table-view-cell:after {
+			left: 0px;
+		}
+		
+		.cate {
+			margin-top: 80px;
+		}
+		
+		.mui-collapse-content p {
+			display: inline-block;
+		}
+	</style>
+
+	<body>
+		<div class="mui-content" style="background-color: #FFFFFF;">
+			<div class="top">
+				<p id="addcate"><span class="mui-icon mui-icon-plusempty" style="	font-size: 16px;"></span>点击添加分类</p>
+			</div>
+			<div class="cate">
+				<ul id="list" class="mui-table-view">
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="" href="#" style="">
+							<span class='mui-icon mui-icon-arrowdown'></span>
+							<span id="1" pid="0">分类</span>
+							<span id="edit" class="mui-pull-right edit mui-icon mui-icon-compose"></span>
+							<span id="add" class="  mui-icon mui-icon-plusempty"></span>
+						</a>
+						<div class="mui-collapse-content">
+							<p id="2" pid="1">子分类</p>
+							<span id="edit" class="mui-pull-right mui-icon mui-icon-compose"></span>
+						</div>
+					</li>
+
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="" href="#" style="">
+							<span class='mui-icon mui-icon-arrowdown'></span>
+							<span id="3" pid="0">分类</span>
+							<span id="edit" class="mui-pull-right mui-icon mui-icon-compose"></span>
+							<span id="add" class=" mui-icon mui-icon-plusempty"></span>
+						</a>
+						<div class="mui-collapse-content">
+							<p id="4" pid="1">子分类</p>
+							<span id="edit" class="mui-pull-right mui-icon mui-icon-compose"></span>
+						</div>
+					</li>
+
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="" href="#" style="">
+							<span class='mui-icon mui-icon-arrowdown'></span>
+							<span id="5" pid="0">分类</span>
+							<span id="edit" class="mui-pull-right mui-icon mui-icon-compose"></span>
+							<span id="add" class=" mui-icon mui-icon-plusempty"></span>
+						</a>
+						<div class="mui-collapse-content">
+							<p id="6" pid="1">子分类</p>
+							<span id="edit" class="mui-pull-right mui-icon mui-icon-compose"></span>
+						</div>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+		<script src="jquery-1.12.3.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			window.onload = function() {
+				mui(".cate ul").on("tap", "span#edit", function(event) {
+					event.stopPropagation();
+					var a = $(this).prev();
+					mui.prompt("", '请输入分类名称', "修改分类名称", ['取消', '确认'], function(event) {
+						if(event.index == 1) {
+							a.text(event.value);
+						}
+					}, 'div')
+				});
+				mui(".cate ul").on("tap", "span#add", function(event) {
+					event.stopPropagation();
+					var b = $(this).closest("li");
+					var id=$(this).prev().prev().attr("id");
+					mui.prompt("", '请输入分类名称', "新建分类名称", ['取消', '确认'], function(event) {
+						if(event.index == 1) {
+							//新建分类	
+							
+							b.children("").hasClass()
+							mui.ajax("{:url('add')}", {
+								data: {
+									pid: id,
+									name: event.value,
+									level:'2'
+								},
+								dataType: 'json', //服务器返回json格式数据
+								type: 'post', //HTTP请求类型
+								timeout: 5000, //超时时间设置为10秒；
+								headers: {
+									'Content-Type': 'application/json'
+								},
+								success: function(data) {
+								      console.log(data);
+								},
+								error: function(xhr, type, errorThrown) {
+								
+								}
+							});
+
+							if(b.hasClass("non")) {
+								b.children("a").prepend("<span class='mui-icon mui-icon-arrowdown'></span>&nbsp;");
+								b.addClass("mui-collapse");
+								b.removeClass("non");
+							}
+							b.append("<div class='mui-collapse-content'><p>" + event.value + "</p> <span id='edit' class='mui-pull-right mui-icon mui-icon-compose'></span>  </div>");
+							b.addClass("mui-active");
+						}
+					}, 'div')
+				});
+				var btn = document.getElementById("addcate");
+				btn.addEventListener("tap", function(event) {
+					var c = $(".cate ul");
+					mui.prompt("", '请输入分类名称', "新建分类名称", ['取消', '确认'], function(event) {
+						if(event.index == 1) {
+							c.append("<li class='mui-table-view-cell non'><a class  href='#'  ><span>" + event.value + "</span><span id='edit' class='mui-pull-right mui-icon mui-icon-compose'></span><span id='add' class=' mui-icon mui-icon-plusempty'></span></a></li>");
+						}
+					}, 'div')
+				});
+			}
+		</script>
+	</body>
+
+</html>

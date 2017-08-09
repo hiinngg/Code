@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1 user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+
+	</head>
+	<style type="text/css">
+		body {
+			background-color: #F4F4F4;
+			height: 100vh;
+		}
+		
+		div {
+			background-color: #FFFFFF;
+		}
+		
+		.pic {
+			position: relative;
+			width: 100%;
+			height: 34.7vh;
+		}
+		
+		.pics {
+			background-color: #F7F7F7;
+			position: relative;
+			height: 21.5vh;
+		}
+		
+		.pic textarea {
+			z-index: 1;
+			position: absolute;
+			margin-top: 22.0vh;
+			border: 0;
+		}
+		
+		.pics:after {
+			position: absolute;
+			content: '';
+			width: 100%;
+			left: 0;
+			bottom: 0;
+			height: 1px;
+			background-color: #ccc;
+			-webkit-transform: scale( 1, .5);
+			transform: scale(1, .5);
+			-webkit-transform-origin: center bottom;
+			transform-origin: center bottom;
+		}
+		
+		.pic:after {
+			position: absolute;
+			content: '';
+			width: 100%;
+			left: 0;
+			bottom: 0;
+			height: 1px;
+			background-color: #ccc;
+			-webkit-transform: scale( 1, .5);
+			transform: scale(1, .5);
+			-webkit-transform-origin: center bottom;
+			transform-origin: center bottom;
+		}
+		
+		.attr {
+			border: 1px solid #ccc;
+			border-style: solid none;
+			margin-top: 2.2vh;
+		}
+		
+		.attr .input {
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 3.8vw;
+			border-top: 1px solid #ccc;
+			height: 7.0vh;
+		}
+		
+		.attr label {
+			margin: auto 0;
+		}
+		
+		.inp {
+			
+			position: absolute;
+			width: 90%;
+			height: 6.0vh;
+			left: 0.2vw;
+			border: 0;
+		}
+		
+		.input input {
+			position: absolute;
+			width: 75%;
+			height: 6.0vh;
+			top: 0.5vh;
+			right: 7.5vw;
+			border: 0;
+		}
+		
+		.add {
+			height: 11.2vh;
+			background-color: #F4F4F4;
+			padding: 4.4vh 4.8vh 4.4vh 60%;
+			font-size: 16px;
+			white-space: nowrap;
+		}
+		
+		.det {
+			display: flex;
+			justify-content: space-between;
+			height: 7.5vh;
+			padding: 2.0vh 3.8vw 2.0vh 3.8vw;
+			align-items: center;
+		}
+		
+		.cate {
+			margin-top: 2.5vh;
+			display: flex;
+			justify-content: space-between;
+			height: 7.5vh;
+			padding: 2.0vh 3.8vw 2.0vh 3.8vw;
+			align-items: center;
+			margin-bottom: 5vh;
+		}
+		
+		.bor {
+			position: relative;
+		}
+		
+		.bor:before {
+			content: '';
+			position: absolute;
+			top: -50%;
+			bottom: -50%;
+			left: -50%;
+			right: -50%;
+			-webkit-transform: scale(0.5);
+			transform: scale(0.5);
+			border-style: solid;
+			border-width: 1px;
+			border-color: #ccc;
+		}
+		
+		.button {
+			text-align: center;
+			padding: 3% 0;
+			width: 44vw;
+			height: 6.4vh;
+			margin-top: 6vh;
+			font-size: 16px;
+		}
+	</style>
+
+	<body>
+
+		<script src="js/mui.min.js"></script>
+
+		<script type="text/javascript">
+			mui.init();
+
+			window.onload = function() {
+					var btn = document.getElementById("add")
+					btn.addEventListener("tap", function() {
+						var att = document.getElementsByClassName("attr")[0];
+						var inpu = document.createElement("div");
+						inpu.className = "input";
+						inpu.innerHTML = "<div > <input  class='inp' type='text' placeholder='属性名' /> <input type='text' placeholder='请填写属性内容' />  </div><img src='del.png' id='del' width='16' height='16' />";
+						att.appendChild(inpu);
+
+						/*		var inp = document.getElementsByClassName("inp")[0]
+					inp.addEventListener("blur", function(event) {
+						event.stopPropagation();
+					});
+*/
+					});
+
+					mui(".attr").on('tap', ' .input img#del', function() {
+
+						//var id = this.parentNode.getAttribute("id");
+						var a = this.parentNode;
+						a.remove();
+					});
+					var btn2 = document.getElementById("xxx");	
+					btn2.addEventListener("tap", function() {
+						
+						var data={};
+						mui(".attr .input").each(function() {
+						 var inp = this.getElementsByTagName("input");
+						
+						if(inp.length>1){
+						 	
+						 	data[inp[0].value]=inp[1].value;
+						 	return;
+						 }
+						
+						 var lab=this.getElementsByTagName("label")[0].innerHTML;
+						
+						  data[lab]=inp[0].value;
+						});
+						var desc = document.getElementsByTagName("textarea")[0].value;
+						data['desc']=desc;
+						
+					
+						console.log(data);
+					}); 
+					
+					/*function get(){
+					var at=document.getElementsByClassName("attr")[0];
+					
+					var child=at.childNodes;
+					console.log(child.length);
+					
+                
+				}*/
+				
+
+			};
+		</script>
+
+		<div class="pic ">
+			<div class="pics">
+				<div style="position: absolute; left:41.9vw; top: 4.2vh;text-align: center;">
+					<img src="" alt="" width="61" height="61" />
+					<p>添加图片</p>
+				</div>
+				<textarea name="" rows="" cols="" placeholder="请填写相关文字内容"></textarea>
+			</div>
+		</div>
+		<form action="" id="form">
+			<div class="attr">
+				<div class="input " id="1" style="border:0">
+					<div> <label>价格</label>
+						<input type="text" placeholder="请填写商品价格">
+					</div>
+				</div>
+				<div class="input" id="2">
+					<div> <label for="">库存</label>
+						<input type="text" placeholder="请填写商品库存">
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="add ">
+
+			<img src="add.png" id="add" alt="" width="16" height="16" style="vertical-align: text-bottom" />
+			<span>添加商品属性</span>
+
+		</div>
+		<div class="det bor">
+			<span>商品详情</span> <span class="mui-icon mui-icon-arrowright"></span>
+
+		</div>
+		<a href="#sheet" class="" style="color: #000000;">
+
+			<div class="cate bor"><span>分类至</span> <span><span style="color: #ccc;">未分类</span><span class="mui-icon mui-icon-arrowright"></span></span>
+			</div>
+
+		</a>
+		<button id="xxx">123</button>
+
+		<!-- 选择分类 -->
+		<div id="sheet" class="mui-popover mui-popover-bottom mui-popover-action ">
+			<!-- 可选择菜单 -->
+
+			<div style="width: 100%;padding: 3vh 3.8vw 2vh; text-align: center; ">
+				<p style="font-size:19px ;">分类至(按分类展示商品，方便筛选)</p>
+
+				<p>新建分类</p>
+
+				<a href="#sheet" class="button mui-btn "><span>取消</span></a>
+				<a class="button mui-btn mui-btn-primary"><span>确定</span></a>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

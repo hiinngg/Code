@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style type="text/css">
+		.mui-content {
+			background-color: #F4F4F4;
+		}
+		
+		body {
+			background-color: #F4F4F4;
+		}
+		
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		div {
+			background-color: #FFFFFF;
+		}
+		
+		p {
+			color: black;
+			font-size: 3vh;
+		}
+		
+		.fixed {
+			height: auto;
+			margin-top: 1.5vh;
+			margin-bottom: 1.5vh;
+			padding: 2.5vh 3.5vw;
+			min-height: 200px;
+		}
+		
+		.con {
+			width: 93.2vw;
+			list-style-type: none;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		
+		.con li {
+			text-align: center;
+			width: 16.3vw;
+			margin-left: 3.5vw;
+			margin-right: 3.5vw;
+			margin-bottom: 4.5vh;
+			height: 13.9vh;
+		}
+		
+		.con li img {
+			vertical-align: super;
+			width: 61px;
+			height: 61px;
+			max-width: 9.2vh;
+			max-height: 9.2vh;
+		}
+		
+		.con p {
+			font-size: 2.2vh;
+			margin-top: 1.2vh;
+			text-align: center;
+		}
+		
+		.ident {
+			height: auto;
+			padding: 2.5vh 3.5vw;
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+		
+		.but {
+			font-size: 3.1vh;
+			background-color: #2E4362;
+			color: #FFFFFF;
+			width: 100vw;
+			height: 8.3vh;
+			position: fixed;
+			bottom: 0;
+		}
+	</style>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			window.onload = function() {
+				mui("ul.con").on('tap', 'li', function() {
+					console.log(this.dataset.url);
+					/*   var a=this.getAttribute('data-url');
+					   console.log(a);*/
+					mui.openWindow({
+						url: "{:url('"+this.dataset.url+"')}",
+						id: 'edit',
+						styles: {},
+						extras: {},
+						createNew: false, //是否重复创建同样id的webview，默认为false:不重复创建，直接显示
+						show: {
+							autoShow: true, //页面loaded事件发生后自动显示，默认为true
+							/*aniShow: animationType, //页面显示动画，默认为”slide-in-right“；
+							duration: animationTime,*/ //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+							event: 'titleUpdate', //页面显示时机，默认为titleUpdate事件时显示
+							extras: {} //窗口动画是否使用图片加速
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '正在加载...', //等待对话框上显示的提示内容
+							options: {
+								/*	width: //等待框背景区域宽度，默认根据内容自动计算合适宽度
+									height: //等待框背景区域高度，默认根据内容自动计算合适高度*/
+							}
+						}
+					})
+				});
+			};
+		</script>
+
+		<div class="mui-content">
+			<div class="fixed">
+				<p> 固定板块 </p>
+				<ul class="con">
+
+					<li>
+						<img src="moudle/jianjie.png" />
+						<p>企业简介</p>
+					</li>
+
+					<li>
+						<img src="moudle/lianxi.png" />
+						<p>联系方式</p>
+					</li>
+
+					<li data-url="product/index">
+						<img src="moudle/pro.png" />
+						<p>产品管理</p>
+					</li>
+
+					<li data-url="news/newslist">
+						<img src="moudle/dongtai.png" alt="" />
+						<p>企业动态</p>
+					</li>
+
+					<li data-url="job/joblist">
+						<img src="moudle/zhaopin.png" alt="" />
+						<p>招聘管理</p>
+					</li>
+
+					<li>
+						<img src="moudle/dianpu.png" />
+						<p>企业店铺</p>
+					</li>
+
+				</ul>
+			</div>
+			<div class="ident">
+				<p> 自定义板块 </p>
+				<ul class="con">
+					<a href="">
+						<li><img src="moudle/diy.png" />
+							<p>自定义1</p>
+						</li>
+					</a>
+					<a href="">
+						<li><img src="moudle/diy.png" />
+							<p>自定义2</p>
+						</li>
+					</a>
+					<a href="">
+						<li><img src="moudle/diy.png" />
+							<p>自定义3</p>
+						</li>
+					</a>
+
+				</ul>
+			</div>
+			<button class="but">企业装修</button>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style type="text/css">
+	body {
+			background-color: #F4F4F4;
+		}
+		
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.info {
+			background-color: white;
+			width: 100vw;
+			height: 100vh;
+			padding: 3.3vh 5.1vw 3.3vh 4.5vw;
+			overflow-y: auto;
+		}
+		
+		.info span {
+			font-size: 2.2vh;
+		}
+		
+		.but {
+			font-size: 3.1vh;
+			background-color: #2E4362;
+			color: #FFFFFF;
+			width: 100vw;
+			height: 8.3vh;
+			position: fixed;
+			bottom: 0;
+		}
+		
+		.info input {
+			border: 1px solid #CCCCCC;
+			border-radius: 5px;
+			height: 6vh;
+			width: 70vw;
+			margin-left: 1.8vw;
+			font-size: 2.2vh;
+		}
+		
+		.lg {
+			font-size: 2.5vh;
+		}
+		
+		.sally input {
+			width: 14.2vw;
+			padding: 0 0.8vw;
+		}
+		
+		textarea {
+			width: 65vw;
+			height: 20vh;
+			margin-bottom: 6.5vh;
+			margin-left: 3.2vw;
+		}
+		
+		input.sm {
+			width: auto;
+			margin-left: 0;
+			vertical-align: middle
+		}
+	}
+	</style>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			window.onload = function() {
+				var btn = document.getElementsByClassName("but")[0];
+				btn.addEventListener("tap", function() {
+					var data = {};
+					mui("#form input").each(function() {
+						var name = this.getAttribute('name');
+						var ch = this.checked;
+						if(ch) {
+							data[name] = "" + ch + "";
+						} else {
+							data[name] = this.value;
+						}
+
+					});			
+					location.href="../job/joblist";
+						mui.post("{:url('edit')}",data , function(data) {
+							//服务器返回响应，根据响应结果，分析是否登录成功；
+							console.log("123");
+						}, 'json');
+				});
+			}
+		</script>
+		<div class="mui-content">
+			<div class="info">
+				<form class="" id="form">
+					<div class="mui-input-row ">
+						<span class="lg">职位名称</span>
+						<input name="name" type="text" class="mui-input-clear" placeholder="如：人力资源总监">
+					</div>
+					<div class="mui-input-row ">
+						<span class="lg">工作地址</span>
+						<input name="addr" type="text" class="mui-input-clear" placeholder="请选择省/市/区">
+					</div>
+					<div class="mui-input-row ">
+						<span class="lg">职能分类</span>
+						<input name="cate" type="text" class="mui-input-clear" placeholder="">
+					</div>
+					<div class="mui-input-row ">
+						<span class="lg">所属部门</span>
+						<input name="depart" type="text" class="mui-input-clear" placeholder="">
+					</div>
+					<div class="mui-input-row sally ">
+						<span class="lg">职位月薪</span>
+						<input name="lower" type="text" /><span>千元&nbsp;至</span><input name="upper" type="text" /><span>千元</span>
+						<input name="isnego" class="sm" type="checkbox" value="false" /> <span>面议</span>
+					</div>
+					<div class="mui-input-row sally ">
+						<span class="lg">发放月数</span>
+						<input name="mon" type="text" /><span>个月</span>
+					</div>
+					<div class="mui-input-row sally ">
+						<span class="lg">工作年限</span>
+						<input name="workage" type="text" /><span>年以上</span>
+						<input name="worklimit" class="sm" type="checkbox" value="false" /> <span>不限</span>
+					</div>
+					<div class="mui-input-row sally ">
+						<span class="lg">学历要求</span>
+						<input name="study" style="width: 26.8vw; margin-right: 5px;" type="text" placeholder="请选择" /><span>以上</span>
+					</div>
+					<div style="display: flex; justify-content:flex-start;position: relative;">
+						<span>职位描述</span>
+						<textarea name="desc" rows="" cols=""></textarea>
+						<span style="position: absolute;bottom:5.8vh;right:8vw;">0/500</span>
+					</div>
+
+				</form>
+
+			</div>
+			<button class="but">保存</button>
+		</div>
+
+	</body>
+
+</html>

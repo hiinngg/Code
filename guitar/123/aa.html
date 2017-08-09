@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+	<head>
+		<title>Mobile Cookbook</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			#someElm {
+				width: 50px;
+				height: 50px;
+				background: #EEEEEE;
+			  border:1px dashed #CCCCCC ;
+				border-radius:10px ;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+		</header>
+		<p id="output" style=""></p>
+
+		<div id="someElm" style="position: relative">
+			<!--<div id="lg" style="background-color: chartreuse;width: 25%;position: absolute;bottom: 0;right: 0;">1</div>-->
+			<img id="lg" src="scale.svg" width="20" height="20" style="position: absolute;right:-15px;bottom: -15px;  box-shadow: 0 0 20px #0000; " />
+		</div>
+
+		<footer>
+		</footer>
+		<script src="http://code.jQuery.com/jquery-1.5.2.min.js"></script>
+		<!-- <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>-->
+		<script>
+			var a = 0,
+				  b = 0;
+			var start = false;
+			var x, y, xst, yst, xend, yend,width,height;
+			var elm = $("#someElm").offset();
+			$("#someElm").bind("touchstart", function(e) {
+
+				elm = $("#someElm").offset();
+				e.preventDefault();
+				var ttouch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+				xst = ttouch.pageX;
+				yst = ttouch.pageY;
+
+			})
+			$('#someElm').bind('touchmove', function(e) {
+				e.preventDefault();
+
+				var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+				xend = touch.pageX;
+				yend = touch.pageY;
+				x = xend - xst;
+				y = yend - yst;
+				//console.log(xst+" "+yst+"||"+xend+" "+yend+"--elm--"+(x)+" "+(y))
+
+				$(this).css('top', y + 'px');
+				$(this).css('left', x + 'px');
+				$("#someElm").offset({
+					left: elm.left + x,
+					top: elm.top + y
+				});
+
+			});
+			$("#someElm").bind("touchend", function(e) {
+
+				elm = $("#someElm").offset()
+			})
+			
+			
+			
+			
+			
+			
+			
+			$("#lg").bind("touchstart", function(e) {
+			e.preventDefault();
+				e.stopPropagation();
+				//elm = $("#someElm").offset();
+				 width=$("#someElm").width();
+				 height=$("#someElm").height();
+			
+				var ttouch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+				xst = ttouch.pageX;
+				yst = ttouch.pageY;
+
+			})
+			$('#lg').bind('touchmove', function(e) {
+
+				e.preventDefault();
+				e.stopPropagation();
+
+				var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+				xend = touch.pageX;
+				yend = touch.pageY;
+				x = xend - xst;
+				y = yend - yst;
+
+			
+				$(this).parent().css('width', (width+x)+'px');
+				$(this).parent().css('height', (height+y)+'px');
+			});
+			$("#lg").bind("touchend", function(e) {
+			e.preventDefault();
+				e.stopPropagation();
+				width= $("#someElm").width();
+				height=$("#someElm").height();
+			})
+
+		</script>
+	</body>
+
+</html>
