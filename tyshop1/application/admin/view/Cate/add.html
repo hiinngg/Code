@@ -1,0 +1,50 @@
+    <link rel="stylesheet" href="../../admin/css/compiled/new-user.css" type="text/css" media="screen" />
+    <!-- main container -->
+
+    <div class="content">
+        <div class="container-fluid">
+            <div id="pad-wrapper" class="new-user">
+                <div class="row-fluid header">
+                    <h3>添加新分类</h3>
+                </div>
+                <div class="row-fluid form-wrapper">
+                    <!-- left column -->
+                       <div class="span9 with-sidebar">
+                      <p class="bg-info"  id="info"></p>
+        
+                        <div class="container">
+                            <form class="new_user_form inline-input" id="aaa" method="post" action="{:url('cate/add')}" >
+                                <div class="span12 field-box">
+                                   <select name="cateid" id=""  class="span5">
+                                  {volist name="cates" id="cate" }
+                                  <option value="{$cate['cateid']}">{$cate['title']}</option>
+                                  {/volist}
+                                   </select>
+                                </div>                          
+                                <div class="span10 field-box">
+                                    <label for="title">分类名称：</label>
+                                    <input class="span5" type="text" name="title" id="title" />
+                                </div>
+                                
+                                <div class="span11 field-box actions">
+                                    <input  class="btn-glow lg" id="on_button"  type="submit" value="创建" />
+                                    <span>或者</span>
+                                    <input type="reset" name="reset" value="取消" class="reset" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- side right column -->
+                    <div class="span3 form-sidebar pull-right">
+                        <div class="alert alert-info hidden-tablet">
+                            <i class="icon-lightbulb pull-left"></i>
+                            请在左侧表单当中填写要添加的分类，请选择好上级分类
+                        </div>                        
+                        <h6>商城分类说明</h6>
+                        <p>该分类为无限级分类</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,145 @@
+  <div class="content">
+      
+        <div class="container-fluid">
+            <div id="pad-wrapper" class="users-list">
+                <div class="row-fluid header">
+                    <h3>商品列表</h3>
+                    <div class="span10 pull-right">
+                        <input type="text" class="span5 search" placeholder="Type a user's name..." />
+                        
+                        <!-- custom popup filter -->
+                        <!-- styles are located in css/elements.css -->
+                        <!-- script that enables this dropdown is located in js/theme.js -->
+                        <div class="ui-dropdown">
+                            <div class="head" data-toggle="tooltip" title="Click me!">
+                                Filter users
+                                <i class="arrow-down"></i>
+                            </div>  
+                            <div class="dialog">
+                                <div class="pointer">
+                                    <div class="arrow"></div>
+                                    <div class="arrow_border"></div>
+                                </div>
+                                <div class="body">
+                                    <p class="title">
+                                        Show users where:
+                                    </p>
+                                    <div class="form">
+                                        <select>
+                                            <option />Name
+                                            <option />Email
+                                            <option />Number of orders
+                                            <option />Signed up
+                                            <option />Last seen
+                                        </select>
+                                        <select>
+                                            <option />is equal to
+                                            <option />is not equal to
+                                            <option />is greater than
+                                            <option />starts with
+                                            <option />contains
+                                        </select>
+                                        <input type="text" />
+                                        <a class="btn-flat small">Add filter</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="new-user.html" class="btn-flat success pull-right">
+                            <span>&#43;</span>
+                            NEW USER
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Users table -->
+                <div class="row-fluid table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span4 sortable">
+                                                                                                    商品名称
+                                </th>
+                                <th class="span3 sortable">
+                                    <span class="line"></span>商品库存
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>商品单价
+                                </th>
+                                <th class="span3 sortable ">
+                                    <span class="line"></span>是否热卖
+                                </th>
+                                <th class="span3 sortable ">
+                                    <span class="line"></span>是否促销
+                                </th>
+                                <th class="span3 sortable ">
+                                    <span class="line"></span>促销价
+                                </th>
+                                <th class="span3 sortable ">
+                                    <span class="line"></span>是否上架
+                                </th>
+                                <th class="span3 sortable ">
+                                    <span class="line"></span>是否推荐
+                                </th>
+                                <th class="span3 sortable ">
+                                    <span class="line"></span>操作
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <!-- row -->
+                        {volist name="lists" id="list"}
+                           <tr class="first">
+                            <td>
+                            {$list.title}
+                              
+                                
+                            </td>
+                             <td>                                
+                                {$list.num}
+                            </td>
+                            <td>
+                               {$list.price}
+                            </td>
+                            <td>
+                             {$list.ishot? '热卖' : '不热卖'} 
+                            </td>
+                            <td >
+                              {$list.issale? '促销' :'不促销'} 
+                            </td>
+                            <td >
+                              {$list.saleprice} 
+                            </td>
+                            <td >
+                              {$list.ison? '上架' : '不上架'} 
+                            </td>
+                            <td >
+                              {$list.istui? '推荐' : '不推荐'} 
+                            </td>
+                            <td>
+                              <a href="../../admin/products/edit?id={$list.productid}"><span class="line align-right" >编辑</span> </a> 
+                                <a href="{:url('products/on?id='.$list.productid)}"><span class="line align-right" >上架</span> </a> 
+                                  <a href="{:url('products/off?id='.$list.productid)}"><span class="line align-right" >下架</span> </a> 
+                             <a href="../../admin/products/del?id={$list.productid} "><span class="line align-right" >删除</span> </a> 
+                            </td>
+                        </tr>
+                         {/volist}
+                     
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination pull-right">
+                 {$lists->render()}
+                 
+                </div>
+                <!-- end users table -->
+            </div>
+        </div>
+    </div>
+    
+   <script>
+   
+   
+   
+   </script>

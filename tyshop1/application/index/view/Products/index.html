@@ -1,0 +1,71 @@
+
+<!-- ============================================================= HEADER : END ============================================================= -->		<section id="category-grid">
+    <div class="container">
+        
+        <!-- ========================================= SIDEBAR ========================================= -->
+
+        <!-- ========================================= SIDEBAR : END ========================================= -->
+
+        <!-- ========================================= CONTENT ========================================= -->
+
+        <div class="col-xs-12 col-sm-12  col-md-12 no-margin wide sidebar">
+
+                  
+            <section id="gaming">
+    <div class="grid-list-products">
+        <h2 class="section-title">全部商品</h2>
+        
+   
+                                
+        <div class="tab-content">
+            <div id="grid-view" class="products-grid fade tab-pane in active">
+                
+                <div class="product-grid-holder">
+                    <div class="row no-margin">
+                        {volist name="datas" id="data"}
+                        <div class="col-xs-12 col-sm-4 no-margin product-item-holder hover"  >
+                            <div class="product-item" >
+                            {eq name="data.issale" value="1"} <div class="ribbon red"><span>促销</span></div> {/eq} 
+                            {eq name="data.istui" value="1"}<div class="ribbon blue"><span>推荐</span></div> {/eq}  
+                            {eq name="data.ishot" value="1"}<div class="ribbon green"><span>热卖</span></div> > {/eq}                  
+                                
+                              
+                                <div class="image">
+                                    <img   width="246"  height="186"  alt="" src="../../images/blank.gif" data-echo="../../product_cover/{$data.cover}" />
+                                </div>
+                                <div class="body" style="margin-bottom:-40px;" >
+                                    
+                                    <div class="title">
+                                        <a href="../../index/products/detail?id={$data.productid}">{$data.title}</a>
+                                    </div>                                   
+                                </div>
+                                <div class="prices">
+                                    <div class="price-prev">{$data.price}</div>
+                                    <div class="price-current pull-right">{$data.saleprice}</div>
+                                </div>
+                                <div class="hover-area">
+                                    <div class="add-cart-button">
+                                        <a href="single-product.html" class="le-button">加入购物车</a>
+                                    </div>
+                                  
+                                </div>
+                            </div><!-- /.product-item -->
+                        </div><!-- /.product-item-holder -->
+                          {/volist}
+                       
+
+                    </div><!-- /.row -->
+                </div><!-- /.product-grid-holder -->
+               <!-- /.pagination-holder -->
+            </div><!-- /.products-grid #grid-view -->
+
+            <!-- /.products-grid #list-view -->
+
+        </div><!-- /.tab-content -->
+    </div><!-- /.grid-list-products -->
+
+</section><!-- /#gaming -->            
+        </div><!-- /.col -->
+        <!-- ========================================= CONTENT : END ========================================= -->    
+    </div><!-- /.container -->
+</section><!-- /#category-grid -->		<!-- ============================================================= FOOTER ============================================================= -->

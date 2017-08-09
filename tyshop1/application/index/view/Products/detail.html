@@ -1,0 +1,84 @@
+
+
+<!-- ============================================================= HEADER : END ============================================================= -->		<div id="single-product">
+    <div class="container" style="margin-top:30px; margin-bottom:30px;">
+
+         <div class="no-margin col-xs-12 col-sm-6 col-md-5 gallery-holder">
+    <div class="product-item-holder size-big single-product-gallery small-gallery">
+
+        <div id="owl-single-product">
+        {volist name="data.pics" id="pic"}
+            <div class="single-product-gallery-item" id="slide{$key}">
+                <a data-rel="prettyphoto" href="images/products/product-gallery-01.jpg">
+                    <img class="img-responsive" alt="" src="../../images/blank.gif" data-echo="../../product_pics/{$pic}" />
+                </a>
+            </div><!-- /.single-product-gallery-item -->
+               {/volist}     <!-- /.single-product-gallery-item -->
+        </div><!-- /.single-product-slider -->
+
+
+        <div class="single-product-gallery-thumbs gallery-thumbs">
+
+            <div id="owl-single-product-thumbnails">
+               
+               {volist name="data.pics" id="pic"  key="k"}
+                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="{$k-1}" href="#slide2">
+                    <img width="67"  height="60" alt="" src="../../images/blank.gif" data-echo="../../product_pics/{$pic}" />
+                </a>
+
+         {/volist}
+            </div><!-- /#owl-single-product-thumbnails -->
+
+            <div class="nav-holder left hidden-xs">
+                <a class="prev-btn slider-prev" data-target="#owl-single-product-thumbnails" href="#prev"></a>
+            </div><!-- /.nav-holder -->
+            
+            <div class="nav-holder right hidden-xs">
+                <a class="next-btn slider-next" data-target="#owl-single-product-thumbnails" href="#next"></a>
+            </div><!-- /.nav-holder -->
+
+        </div><!-- /.gallery-thumbs -->
+
+    </div><!-- /.single-product-gallery -->
+</div><!-- /.gallery-holder -->        
+        <div class="no-margin col-xs-12 col-sm-7 body-holder">
+    <div class="body">
+        
+
+        <div class="title"><a href="#">{$data.title}</a></div>
+
+
+     
+
+     
+
+        <div class="excerpt">
+            <p>{$data.descr}</p>
+        </div>
+        
+        <div class="prices">
+            <div class="price-current">￥{$data.saleprice}</div>
+            <div class="price-prev">￥{$data.price}</div>
+        </div>
+     <div class="excerpt">
+            <p>库存：{$data.num}</p>
+        </div>
+        <div class="qnt-holder">
+            <div class="le-quantity">
+                <form>
+                    <a class="minus" href="#reduce"></a>
+                   <input name="quantity" readonly="readonly" type="text" value="1" />
+                    <a class="plus" href="#add"></a>
+                </form>
+            </div>
+            <a id="addto-cart" href="cart.html" class="le-button huge">add to cart</a>
+        </div><!-- /.qnt-holder -->
+    </div><!-- /.body -->
+
+</div><!-- /.body-holder -->
+    </div><!-- /.container -->
+</div><!-- /.single-product -->
+
+<!-- ========================================= SINGLE PRODUCT TAB ========================================= -->
+
+<!-- ========================================= RECENTLY VIEWED : END ========================================= -->		<!-- ============================================================= FOOTER ============================================================= -->

@@ -1,0 +1,94 @@
+<div  class="content"  style="padding-top:50px; padding-left:50px;">
+<form  class="form-horizontal" style="padding:20px;"  action="{:url('products/edit?id='.$list.productid)}"  enctype="multipart/form-data" method="post">
+
+   
+  <label for="cates">分类列表</label>
+  <select class="form-control" style="height:50px;"  name="cateid" id="cates">
+                 {volist name="cates" id="cate" }
+                       <option value="{$cate['cateid']}"  {eq name="list.cateid" value="$cate['cateid']"}selected="selected"{/eq}> {$cate['title']}</option>
+                      {/volist}
+</select>
+  
+      <div class="form-group">
+     <label for="title">商品名称</label>
+    <input type="text" class="form-control" id="title" name="title"  value="{$list.title}">
+  </div>
+ 
+ <label for="desc">商品描述</label>
+   <textarea class="form-control" id="desc" name="descr"  rows="3" >{$list.descr}</textarea>
+  
+  
+        <div class="form-group">
+     <label for="price">商品价格</label>
+    <input type="text" class="form-control" id="price"  name="price" value="{$list.price}">
+  </div>
+  
+  
+  
+<div  style="display:flex;">
+<p>是否热卖:&nbsp;&nbsp;</p>
+
+ <label class="radio-inline">
+  <input type="radio" name="ishot" id="inlineRadio1"  {eq name="list.ishot" value='1'}checked{/eq}  value=1> 热卖
+</label>
+<label class="radio-inline">
+  <input type="radio" name="ishot" id="inlineRadio2"  {eq name="list.ishot" value='0'}checked{/eq}   value=0> 不热卖
+</label>
+</div>
+  
+
+<div  style="display:flex;">
+<p>是否促销:&nbsp;&nbsp;</p>
+
+ <label class="radio-inline">
+  <input type="radio" name="issale" id="inlineRadio1"  {eq name="list.issale" value='1'}checked{/eq}   value=1> 促销
+</label>
+<label class="radio-inline">
+  <input type="radio" name="issale" id="inlineRadio2"  {eq name="list.issale" value='0'}checked{/eq}  value=0> 不促销
+</label>
+</div>
+ 
+       <div class="form-group">
+     <label for="saleprice">促销价格</label>
+    <input type="text" class="form-control" id="saleprice"   value="{$list.saleprice}"  name="saleprice" >
+  </div>
+  
+      <div class="form-group">
+     <label for="num">库存</label>
+    <input type="text" class="form-control" id="num"  value="{$list.num}" name="num" >
+  </div>
+ 
+  <div  style="display:flex;">
+<p>是否上架:&nbsp;&nbsp;</p>
+
+ <label class="radio-inline">
+  <input type="radio" name="ison" id="inlineRadio1"  {eq name="list.ison" value='1'}checked{/eq}  value=1> 上架
+</label>
+<label class="radio-inline">
+  <input type="radio" name="ison" id="inlineRadio2"  {eq name="list.ison" value='0'}checked{/eq}  value=0> 不上架
+</label>
+</div>
+ 
+ 
+   <div  style="display:flex;">
+<p>是否推荐:&nbsp;&nbsp;</p>
+
+ <label class="radio-inline">
+  <input type="radio" name="istui" id="inlineRadio1"  {eq name="list.istui" value='1'}checked{/eq}  value=1>推荐
+</label>
+<label class="radio-inline">
+  <input type="radio" name="istui" id="inlineRadio2"  {eq name="list.istui" value='0'}checked{/eq}  value=0>不推荐
+</label>
+</div>
+  
+
+ 
+  <button type="submit" class="btn btn-default">添加</button>
+</form>
+</div>
+
+
+
+
+
+

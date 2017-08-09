@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//application/admin/view/Index/index.html=UTF-8
+encoding//application/admin/view/Manage/managers.html=UTF-8
+encoding//application/admin/view/layout.html=UTF-8
+encoding//application/common/validate/Admin.php=UTF-8
+encoding//application/config.php=UTF-8
+encoding//application/database.php=UTF-8
+encoding//application/index/controller/Index.php=UTF-8
+encoding//application/index/view/Index/index.html=UTF-8
+encoding//application/model/Admin.php=UTF-8
+encoding//public/index.php=UTF-8
+encoding//public/static/js/dialog.js=UTF-8
+encoding//thinkphp/library/think/App.php=UTF-8
+encoding//thinkphp/library/traits/controller/Jump.php=UTF-8

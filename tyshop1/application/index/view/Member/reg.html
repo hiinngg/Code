@@ -1,0 +1,83 @@
+
+<!-- ============================================================= HEADER : END ============================================================= -->		<!-- ========================================= MAIN ========================================= -->
+<main id="authentication" class="inner-bottom-md">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-6">
+			<!-- /.sign-in -->
+			
+					<h2 class="bordered">创建新用户</h2>
+					<div class="alert alert-danger" role="alert" style="display:none;"  id="aaa"></div> 
+						<div class="alert alert-success" role="alert" style="display:none;"  id="ccc"></div> 
+					
+					<!-- <form  class="register-form cf-style-1" id="form"> -->
+					<form  class="register-form cf-style-1" id="bbb">
+						<div class="field-row">
+                            <label>用户名</label>
+                            <input type="text" class="le-input" name="username" id="username">
+                        </div><!-- /.field-row -->
+                       <div class="field-row">
+                            <label>密码</label>
+                            <input type="password" class="le-input" name="userpass" id="userpass">
+                        </div><!-- /.field-row -->
+                        
+                        <div class="field-row">
+                            <label>确认密码</label>
+                            <input type="password" class="le-input" name="repass" id="repass">
+                        </div><!-- /.field-row -->
+                        
+                        <div class="field-row">
+                            <label>Email地址</label>
+                            <input type="text" class="le-input" name="useremail" id="useremail">
+                        </div><!-- /.field-row -->
+                        <div class="buttons-holder">
+                            <input type="button" class="le-button huge" id="on_button" value="注册" />
+                        </div><!-- /.buttons-holder -->
+					</form>
+				<!-- /.register -->
+			</div><!-- /.col -->
+
+			
+
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</main><!-- /.authentication -->
+<!-- ========================================= MAIN : END ========================================= -->		<!-- ============================================================= FOOTER ============================================================= -->
+		
+		   <script src="../../admin/jquery-3.1.1.min.js"></script>
+		<script>
+		$('input').focus(function(){
+			$('#aaa').hide('');
+		}) 
+		
+		  $("#on_button").click(function () {
+		      $.ajax({
+			 type: "POST", 
+			 url: "../Member/reg",
+			 data:$('#bbb').serialize(),
+			 dataType: 'json',
+			 success: function (data) {
+			 if (data.status ==-1) {
+			 $("#aaa").show();	 
+			 $("#aaa").html(data.msg);
+			 return false;
+			 }
+			 else {
+			 if(data.status==1){
+				 $("#ccc").html('注册成功！');
+				 $("#ccc").show(function(){window.location.href = "../Index/Index";});
+				 
+				 
+			 }
+			 }
+			 }
+			 })
+			 });
+		
+		</script>	 
+			 
+			 
+	
+	
+<

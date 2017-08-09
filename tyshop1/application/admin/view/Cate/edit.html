@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet"  type="text/css" href="../../bootstrap/css/bootstrap.min.css" />
+	<title>Document</title>
+</head>
+<body>
+	
+	<div class="col-md-9" style="background:white;height:100%;"  >
+   <div  style="height:50%; border-bottom:1px solid #ccc;" >
+   
+   <div class="control-group js_uploadBox">
+    <div class="btn-upload">
+      <a href="javascript:void(0);"><i class="icon-upload"></i><span class="js_uploadText">上传</span>图片</a>
+      <input class="js_upFile" type="file" name="cover">
+    </div>
+    
+    <div class="js_showBox "><img class="js_logoBox" src="" width="100px" ></div>
+</div>
+   
+   </div>
+  <div>
+   <!-- 加载编辑器的容器 -->
+  <!-- 加载编辑器的容器 -->
+    <form action="{:url('cate/edit')}"  method="post"   >
+     <script id="container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+    <button  type="submit">11111</button>
+    </form>
+    
+  
+    
+    
+    
+    
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="../../Ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="../../Ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+    <!-- 配置文件 -->
+  </div>
+ 
+
+
+    </div>
+    <!-- left -->
+
+
+    <!-- right -->
+	<div class="col-md-3" >111</div>
+	
+	
+	</form>
+	
+	
+		  <!-- 配置文件 -->
+
+    <!-- 实例化编辑器 -->
+     <script  src="../../tinymce/js/tinymce/tinymce.min.js" ></script>
+     <script src="../../jquery.uploadView.js"></script> 
+	<script src="../../bootstrap/js/bootstrap.min.js"></script>
+	<script>
+	
+	  tinymce.init({
+	    selector: '#mytextarea'
+	  });
+	  </script>
+	
+
+	
+
+</body>
+</html>

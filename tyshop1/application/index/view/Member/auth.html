@@ -1,0 +1,93 @@
+
+<!-- ============================================================= HEADER : END ============================================================= -->		<!-- ========================================= MAIN ========================================= -->
+<main id="authentication" class="inner-bottom-md">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-6">
+			<!-- /.sign-in -->
+			<img src="../../images/loginside.jpg" alt="" />
+			</div><!-- /.col -->
+
+			<div class="col-md-6"  >
+			<section class="section sign-in inner-right-xs"  style="margin-left:50px;">
+					<h2 class="bordered">登录</h2>
+					<div class="alert alert-danger" role="alert" style="display:none;"  id="error"></div> 
+						<div class="alert alert-success" role="alert" style="display:none;"  id="info"></div> 	
+					
+					<!-- 第三方登录 -->
+               <!--	<div class="social-auth-buttons">
+						<div class="row">
+							<div class="col-md-6">
+								<button class="btn-block btn-lg btn btn-facebook"><i class="fa fa-facebook"></i> Sign In with Facebook</button>
+							</div>
+							<div class="col-md-6">
+								<button class="btn-block btn-lg btn btn-twitter"><i class="fa fa-twitter"></i> Sign In with Twitter</button>
+							</div>
+						</div>
+					</div>  -->
+				
+
+					<form role="form" class="login-form cf-style-1" id="form">
+						<div class="field-row">
+                            <label>用户名或邮箱</label>
+                            <input type="text" class="le-input"  name="username">
+                        </div><!-- /.field-row -->
+
+                        <div class="field-row">
+                            <label>密码</label>
+                            <input type="password" class="le-input" name="userpass">
+                        </div><!-- /.field-row -->
+
+                        <div class="field-row clearfix">
+                        	<span class="pull-left">
+                        		<label class="content-color"><input type="checkbox"  name="rememberMe"  value=9 class="le-checbox auto-width inline"> <span class="bold">记住我</span></label>
+                        	</span>
+                        	<span class="pull-right">
+                        		<a href="#" class="content-color bold">忘记密码 ?</a>
+                        	</span>
+                        </div>
+
+                        <div class="buttons-holder">
+                            <button type="button" class="le-button huge" id="on_button">登录</button>
+                        </div><!-- /.buttons-holder -->
+					</form><!-- /.cf-style-1 -->
+
+				</section>
+			</div><!-- /.col -->
+
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</main><!-- /.authentication -->
+<!-- ========================================= MAIN : END ========================================= -->		<!-- ============================================================= FOOTER ============================================================= -->
+		   <script src="../../admin/jquery-3.1.1.min.js"></script>
+		<script>
+		$('input').focus(function(){
+			$('#error').hide('');
+		}) 
+		
+		  $("#on_button").click(function () {
+		      $.ajax({
+			 type: "POST", 
+			 url: "../Member/auth",
+			 data:$('#form').serialize(),
+			 dataType: 'json',
+			 success: function (data) {
+			 if (data.status ==-1) {
+			 $("#error").show();	 
+			 $("#error").html(data.msg);
+			 return false;
+			 }
+			 else {
+			 if(data.status==1){
+				 $("#info").html('登录成功！');
+				 $("#info").show(function(){window.location.href = "../Index/Index";});
+				 
+				 
+			 }
+			 }
+			 }
+			 })
+			 });
+		
+		</script>	 

@@ -1,0 +1,103 @@
+    <link rel="stylesheet" href="../../admin/css/compiled/new-user.css" type="text/css" media="screen" />
+    <!-- main container -->
+    <div class="content">
+        
+        <div class="container-fluid">
+            <div id="pad-wrapper" class="new-user">
+                <div class="row-fluid header">
+                    <h3>添加新管理员</h3>
+                     
+                </div>
+                 
+                <div class="row-fluid form-wrapper">
+                      
+                    <!-- left column -->
+                    <div class="span9 with-sidebar">
+                      <p class="bg-info"  id="info"></p>
+        
+                        <div class="container">
+                            <form class="new_user_form inline-input" id="aaa" method="post"  >
+                                <div class="span12 field-box">
+                                    <label>管理员账号：</label>
+                                    <input class="span9" type="text" name="adminuser" id="adminuser"  />
+                                </div>
+                                
+                                <div class="span12 field-box">
+                                    <label>电子邮箱：</label>
+                                    <input class="span9" type="text" name="adminemail"  id="adminemail" />
+                                </div>
+                                <div class="span12 field-box">
+                                    <label>密码：</label>
+                                    <input class="span9" type="password"  name="adminpass" id="adminpass"/>
+                                </div>
+                                <div class="span12 field-box">
+                                    <label>确认密码：</label>
+                                    <input class="span9" type="password" name="repass" id="repass" />
+                                </div>
+                                
+                                <div class="span11 field-box actions">
+                                    <input  class="btn-glow lg" id="on_button"  type="button" value="创建" />
+                                    <span>或者</span>
+                                    <input type="reset" name="reset" value="取消" class="reset" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- side right column -->
+                    <div class="span3 form-sidebar pull-right">
+                        
+                        <div class="alert alert-info hidden-tablet">
+                            <i class="icon-lightbulb pull-left "></i>
+                                                         请在左侧填写管理员相关信息，包括管理员账号，电子邮箱，以及密码
+                        </div>                        
+                        <h6>重要提示：</h6>
+                        <p>管理员可以管理后台功能模块</p>
+                        <p>请谨慎添加</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  <script src="../../admin/jquery-3.1.1.min.js"></script> 
+ <script>
+ <!-- Ajax -->
+ <!--获取表单信息 -->
+    
+	$("#on_button").click(function () {
+/* 	var user = {
+	adminuser: $("#adminuser").val(),
+	adminpass: $("#adminpass").val(),
+	adminemail:$("#adminemail").val(),
+	repass:    $("#repass").val()
+	}; */
+ <!-- 提交Ajax -->
+ $.ajax({
+
+	 type: "POST", 
+	 url: "../Manage/insert",
+	 data:$('#aaa').serialize(),
+	 dataType: 'json',
+	 success: function (data) {
+	 if (data.status == -1) {
+	 $("#info").html(data.msg);
+	 return false;
+	 }
+	 else {
+	 if(data.status==1){
+		 $("#info").html(data.msg);
+		 $("input[type=reset]").trigger("click");
+		 return true;
+	 }
+	 
+	 }
+	 
+	 }
+	 })
+
+	 });
+
+
+
+ </script>
+    <!-- end main container -->
